@@ -1,0 +1,332 @@
+/* =========================================
+   CSS Variables & Core Styles
+   ========================================= */
+:root {
+  /* Light Mode Palette */
+  --bg-color: #F7FCE5;            /* User Requested BG */
+  --header-footer-bg: #407f24;   /* User Requested Green */
+  --text-primary: #0f172a;
+  --text-on-green: #ffffff;
+  --card-bg-light: #ffffff;
+  --accent-hover-green: #2d5a19; /* Darker green for hover */
+  
+  --nav-height: 80px;
+  --transition-speed: 0.3s;
+}
+
+/* Dark Mode Palette Class */
+body.dark-mode {
+  --bg-color: #1a1d12;            /* Desaturated dark green-black */
+  --header-footer-bg: #2d5a19;   /* Desaturated header */
+  --text-primary: #f1f5f9;
+  --text-on-green: #e2e8f0;
+  --card-bg-light: #24281a;       /* Darker card bg */
+  --accent-hover-green: #407f24; /* Switch hover color in dark mode */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* =========================================
+   Top Navbar & Logo
+   ========================================= */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: var(--header-footer-bg);
+  color: var(--text-on-green);
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out, background-color var(--transition-speed);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+header.nav-hidden {
+  transform: translateY(-100%);
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 50px; /* Adjust based on your PNG size */
+  height: 50px;
+  object-fit: contain;
+  background: transparent; /* Ready for PNG */
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-on-green);
+  max-width: 250px;
+  line-height: 1.2;
+}
+
+.nav-right-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 0.8rem;
+}
+
+.nav-links a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Dark Mode Toggle Button */
+#dark-mode-toggle {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.4);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+#dark-mode-toggle:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* =========================================
+   Main Layout & General UI
+   ========================================= */
+main {
+  margin-top: var(--nav-height);
+  flex: 1;
+  padding: 3rem 1.5rem;
+  max-width: 100%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--header-footer-bg); }
+body.dark-mode h1 { color: #f1f5f9; } /* Adjustment for Dark Mode */
+h2 { font-size: 1.8rem; margin-bottom: 0.8rem; color: var(--header-footer-bg); }
+p { margin-bottom: 1.2rem; opacity: 0.9; }
+
+.image-placeholder {
+  background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+  width: 100%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #334155;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   Home Page Grid & Hover Cards
+   ========================================= */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.info-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden; /* Needed for hover effects */
+  height: 700px; /* Fixed height for consistency */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  text-decoration: none; /* Entire card is a link */
+  color: var(--text-primary);
+  transition: transform var(--transition-speed);
+}
+
+/* Card Type A: Background Image, White Text */
+.card-type-a {
+  background-color: #334155; /* Fallback */
+}
+
+.card-type-a img.card-bg-img {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.7; /* Standard opacity */
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+}
+
+/* Card Type B: Background Color (#F7FCE5), Text color (#text-primary) */
+.card-type-b {
+  background-color: var(--card-bg-light); /* Default light card */
+  z-index: 2;
+}
+
+/* Standard Content Layout (Before Hover) */
+.card-content {
+  position: relative;
+  padding: 2rem;
+  z-index: 10; /* Above image/bg */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Text at bottom */
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card-type-a .card-content {
+  color: white; /* On image */
+}
+
+/* =========================================
+   The 3-Second Hover State
+   Triggered by JS adding .hover-active
+   ========================================= */
+
+/* The solid darker green background that reveals */
+.hover-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: var(--accent-hover-green);
+  z-index: 5; /* Between standard image/bg and content */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Shift Content Up and Fade Out */
+.info-card.hover-active .card-content {
+  transform: translateX(10%);
+}
+
+/* Reveal Overlay */
+.info-card.hover-active .hover-overlay {
+  opacity: 1;
+}
+
+/* Image behavior (Type A) on Hover */
+.card-type-a.hover-active img.card-bg-img {
+  transform: translateX(10%);
+  opacity: 0.25;
+}
+
+/* The Arrow/Info Text (Initially Hidden) */
+.more-info-revealer {
+  position: absolute;
+  top: 0; left: 0; width: 10%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 15; /* Top layer */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
+}
+
+/* Show Arrow and Text */
+.info-card.hover-active .more-info-revealer {
+  opacity: 1;
+  transform: translateX(10%);
+}
+
+.arrow-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.info-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+footer {
+  background-color: var(--header-footer-bg);
+  color: var(--text-on-green);
+  padding: 3rem 1.5rem 1.5rem;
+  margin-top: auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease, background-color var(--transition-speed);
+}
+
+footer.footer-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-col h3 { color: white; margin-bottom: 1rem; font-size: 1.2rem; }
+.footer-col p, .footer-col li { font-size: 0.95rem; color: #e2e8f0; margin-bottom: 0.6rem; }
+.footer-col ul { list-style: none; }
+.footer-col a { color: #e2e8f0; text-decoration: none; transition: color 0.2s; }
+.footer-col a:hover { color: white; }
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 1.2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+}

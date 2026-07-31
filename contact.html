@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About LIET - Lancaster Institute</title>
+  <link rel="stylesheet" href=".././CSS Files/style.css">
+</head>
+<body>
+  <header id="navbar">
+    <nav class="navbar">
+      <a href="index.html" class="logo-container">
+        <img src="images/logo.png" alt="LIET Logo" class="logo-img">
+        <span class="logo-text">Lancaster Institute of Engineering and Technology</span>
+      </a>
+      
+      <div class="nav-right-group">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="disciplines.html">Disciplines</a></li>
+          <li><a href="faculty.html">Faculty</a></li>
+          <li><a href="why-join.html">Why Join</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="apply.html" class="btn-apply">Apply</a></li>
+        </ul>
+        <button id="dark-mode-toggle">🌙 Dark Mode</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contact Us</h1>
+    <p>Have questions regarding admissions, programs, or campus visits? Send us an inquiry.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="c-name">Full Name</label>
+            <input type="text" id="c-name" placeholder="John Doe" required>
+          </div>
+          <div class="form-group">
+            <label for="c-email">Email Address</label>
+            <input type="email" id="c-email" placeholder="john@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="c-type">Inquiry Type</label>
+            <select id="c-type">
+              <option>General Admission Inquiry</option>
+              <option>Financial Aid & Scholarships</option>
+              <option>Campus Visit / Tour</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="c-message">Message</label>
+            <textarea id="c-message" placeholder="Type your inquiry here..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+      </div>
+
+      <div>
+        <h2>Admissions Office</h2>
+        <p><strong>Address:</strong> 123 University Ave, Education City, ST 12345</p>
+        <p><strong>Phone:</strong> +1 (800) 555-0199</p>
+        <p><strong>Email:</strong> admissions@apex.edu</p>
+        <div class="image-placeholder" style="height: 180px; margin-top: 1.5rem;">
+          [ Map Location Placeholder ]
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer">
+         CSS handles color updates -->
+    <div class="footer-content">
+      <div class="footer-col">
+        <h3>Lancaster Institute (LIET)</h3>
+        <p>123 Innovation Drive, Lancaster, in</p>
+      </div>
+      <div class="footer-col">
+        <h3>Contact Admissions</h3>
+        <p>📞 +44 1524 5550199</p>
+        <p>✉️ admissions@liet.ac.in</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lancaster Institute of Engineering and Technology. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../JS Files/main.js"></script>
+  <script src="../JS Files/contact.js"></script>
+</body>
+</html>

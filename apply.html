@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About LIET - Lancaster Institute</title>
+  <link rel="stylesheet" href=".././CSS Files/style.css">
+</head>
+<body>
+  <header id="navbar">
+    <nav class="navbar">
+      <a href="index.html" class="logo-container">
+        <img src="images/logo.png" alt="LIET Logo" class="logo-img">
+        <span class="logo-text">Lancaster Institute of Engineering and Technology</span>
+      </a>
+      
+      <div class="nav-right-group">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="disciplines.html">Disciplines</a></li>
+          <li><a href="faculty.html">Faculty</a></li>
+          <li><a href="why-join.html">Why Join</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="apply.html" class="btn-apply">Apply</a></li>
+        </ul>
+        <button id="dark-mode-toggle">🌙 Dark Mode</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Application for Admission</h1>
+    <p>Please complete the form below to submit your official application.</p>
+
+    <div class="card">
+      <form id="apply-form">
+        <h2>1. Personal Information</h2>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="a-fname">First Name</label>
+            <input type="text" id="a-fname" placeholder="Enter first name" required>
+          </div>
+          <div class="form-group">
+            <label for="a-lname">Last Name</label>
+            <input type="text" id="a-lname" placeholder="Enter last name" required>
+          </div>
+        </div>
+
+        <h2>2. Academic Preferences</h2>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="a-discipline">Preferred Discipline</label>
+            <select id="a-discipline" required>
+              <option value="">Select a program...</option>
+              <option>Engineering</option>
+              <option>Business Administration</option>
+              <option>Computer Science</option>
+              <option>Arts & Humanities</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="a-term">Intended Start Term</label>
+            <select id="a-term" required>
+              <option>Fall 2026</option>
+              <option>Spring 2027</option>
+            </select>
+          </div>
+        </div>
+
+        <h2>3. Statement of Intent</h2>
+        <div class="form-group">
+          <label for="a-statement">Briefly describe your academic goals</label>
+          <textarea id="a-statement" placeholder="Write a short statement..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Submit Application</button>
+      </form>
+    </div>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h3>Lancaster Institute (LIET)</h3>
+        <p>123 Innovation Drive, Lancaster, in</p>
+      </div>
+      <div class="footer-col">
+        <h3>Contact Admissions</h3>
+        <p>📞 +44 1524 5550199</p>
+        <p>✉️ admissions@liet.ac.in</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lancaster Institute of Engineering and Technology. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../JS Files/main.js"></script>
+  <script src="../JS Files/apply.js"></script>
+</body>
+</html>
