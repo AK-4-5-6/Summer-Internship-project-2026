@@ -1,16 +1,29 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const darkModeToggle = document.getElementById('dark-mode-toggle');
-  const currentTheme = localStorage.getItem('theme');
-  const body = document.body;
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Locate the button (Make sure your HTML button matches this ID or Class)
+  const themeToggleBtn = document.getElementById("theme-toggle") || document.querySelector(".theme-toggle");
 
-  if (darkModeToggle) {
-    darkModeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-    
-      const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
-      localStorage.setItem('theme', theme);
-    });
+  if (!themeToggleBtn) {
+    console.error("Theme toggle button not found in DOM! Check your HTML ID/Class.");
+    return;
   }
+
+  // 2. Click Handler
+  themeToggleBtn.addEventListener("click", (event) => {
+    event.preventDefault(); // Prevents link navigation or form reloads if button is wrapped
+
+    // Toggle class on <html> element
+    const isDarkMode = document.documentElement.classList.toggle("dark-mode");
+
+    // Explicitly write to localStorage
+    if (isDarkMode) {
+      localStorage.setItem("theme", "dark");
+      console.log("Saved to localStorage: theme = dark");
+    } else {
+      localStorage.setItem("theme", "light");
+      console.log("Saved to localStorage: theme = light");
+    }
+  });
+});
 
   let lastScrollY = window.scrollY;
   const navbar = document.getElementById('navbar');
