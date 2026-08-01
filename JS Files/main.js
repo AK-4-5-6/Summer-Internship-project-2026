@@ -13,7 +13,7 @@ console.log("main.js loaded sucessfully");
         e.preventDefault();
 
         // Toggle class on the <html> tag
-        const isDark = document.documentElement.classList.toggle("dark-mode");
+        const isDark = document.body.classList.toggle("dark-mode");
 
         // Write to localStorage
         localStorage.setItem("theme", isDark ? "dark" : "light");
