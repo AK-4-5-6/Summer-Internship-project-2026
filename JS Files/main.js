@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Locate the button (Make sure your HTML button matches this ID or Class)
-  const themeToggleBtn = document.getElementById("theme-toggle") || document.querySelector(".theme-toggle");
+  const themeToggleBtn = document.getElementById("dark-mode-toggle") || document.querySelector(".dark-mode-toggle");
 
   if (!themeToggleBtn) {
     console.error("Theme toggle button not found in DOM! Check your HTML ID/Class.");
