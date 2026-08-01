@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/CSS%20Files/:path*",
+      "destination": "/CSS Files/:path*"
+    },
+    {
+      "source": "/JS%20Files/:path*",
+      "destination": "/JS Files/:path*"
+    },
+    {
+      "source": "/Project%20Images/:path*",
+      "destination": "/Project Images/:path*"
+    }
+  ]
+}
