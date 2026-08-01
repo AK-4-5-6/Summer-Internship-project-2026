@@ -366,6 +366,69 @@ p {
   text-transform: uppercase;
 }
 
+/* Carousel Container Rules */
+.carousel-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform var(--transition-slow);
+}
+
+/* Slide Visibility */
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+}
+
+.carousel-slide.active {
+  opacity: 0.85; 
+}
+
+/* Preserve Hover Scale Effect */
+.info-card:hover .carousel-container,
+.info-card.hover-active .carousel-container {
+  transform: scale(1.03);
+}
+
+/* Optional Navigation Arrow Overlay */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5; 
+  background: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 0.8rem;
+  cursor: pointer;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity var(--transition-fast), background-color var(--transition-fast);
+}
+
+
+.info-card:hover .carousel-btn {
+  opacity: 0.7;
+}
+
+.carousel-btn:hover {
+  opacity: 1 !important;
+  background-color: var(--color-primary);
+}
+
+.prev-btn { left: 222px; }
+.next-btn { right: 18px; }
+
 /* ==========================================================================
    5. FACULTY & MULTI-COLUMN GRIDS (.grid-3, .card)
    ========================================================================== */
