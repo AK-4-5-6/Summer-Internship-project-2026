@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About LIET - Lancaster Institute</title>
   <link rel="icon" href="../Project Images/Project_logo.png">
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("theme");
+      // Checks localStorage OR system preferences if no stored preference exists
+      if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.classList.add("dark-mode");
+      } else {
+        document.documentElement.classList.remove("dark-mode");
+      }
+    })();
+  </script>
   <link rel="stylesheet" href=".././CSS Files/style.css">
 </head>
 <body>
@@ -99,12 +110,6 @@
 
   <script src="../JS Files/main.js"></script>
   <script src="../JS Files/apply.js"></script>
-  <script>
-    if (localStorage.getItem("theme") === "dark" || 
-       (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-      document.documentElement.classList.add("dark-mode");
-    }
-  </script>
   <script src="../JS Files/LocalStorage-1.js"></script>
 </body>
 </html>
