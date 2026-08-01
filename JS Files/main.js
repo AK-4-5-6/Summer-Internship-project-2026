@@ -1,29 +1,33 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // 1. Locate the button (Make sure your HTML button matches this ID or Class)
-  const themeToggleBtn = document.getElementById("dark-mode-toggle") || document.querySelector(".dark-mode-toggle");
+(() => {
+  const initDarkMode = () => {
+    // Looks for id="dark-mode-toggle" OR class="dark-mode-toggle"
+    const btns = document.querySelectorAll("#dark-mode-toggle, .dark-mode-toggle");
 
-  if (!themeToggleBtn) {
-    console.error("Theme toggle button not found in DOM! Check your HTML ID/Class.");
-    return;
+    console.log(`Found ${btns.length} dark-mode-toggle element(s).`);
+
+    if (btns.length === 0) return;
+
+    btns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // Toggle class on the <html> tag
+        const isDark = document.documentElement.classList.toggle("dark-mode");
+
+        // Write to localStorage
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+
+        console.log(`Theme saved to localStorage: ${isDark ? "dark" : "light"}`);
+      });
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initDarkMode);
+  } else {
+    initDarkMode();
   }
-
-  // 2. Click Handler
-  themeToggleBtn.addEventListener("click", (event) => {
-    event.preventDefault(); // Prevents link navigation or form reloads if button is wrapped
-
-    // Toggle class on <html> element
-    const isDarkMode = document.documentElement.classList.toggle("dark-mode");
-
-    // Explicitly write to localStorage
-    if (isDarkMode) {
-      localStorage.setItem("theme", "dark");
-      console.log("Saved to localStorage: theme = dark");
-    } else {
-      localStorage.setItem("theme", "light");
-      console.log("Saved to localStorage: theme = light");
-    }
-  });
-});
+})();
 
   let lastScrollY = window.scrollY;
   const navbar = document.getElementById('navbar');
