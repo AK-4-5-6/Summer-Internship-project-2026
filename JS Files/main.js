@@ -1,27 +1,27 @@
 console.log("main.js loaded sucessfully");
-(() => {
-  const initDarkMode = () => {
-    // Looks for id="dark-mode-toggle" OR class="dark-mode-toggle"
-    const btns = document.querySelectorAll("#dark-mode-toggle, .dark-mode-toggle");
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Ensure body gets the class immediately if localStorage is already dark
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    document.documentElement.classList.add("dark-mode");
+  }
 
-    console.log(`Found ${btns.length} dark-mode-toggle element(s).`);
+  // 2. Button Click Listener
+  const toggleBtn = document.querySelector("#dark-mode-toggle, .dark-mode-toggle");
 
-    if (btns.length === 0) return;
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", (e) => {
+      e.preventDefault();
 
-    btns.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
+      // Toggle class directly on body (where your CSS is listening!)
+      const isDark = document.body.classList.toggle("dark-mode");
+      document.documentElement.classList.toggle("dark-mode");
 
-        // Toggle class on the <html> tag
-        const isDark = document.body.classList.toggle("dark-mode");
-
-        // Write to localStorage
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-
-        console.log(`Theme saved to localStorage: ${isDark ? "dark" : "light"}`);
-      });
+      // Save to localStorage
+      localStorage.setItem("theme", isDark ? "dark" : "light");
     });
-  };
+  }
+});
   
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initDarkMode);
