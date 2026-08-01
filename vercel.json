@@ -1,19 +1,20 @@
-
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
+  "routes": [
     {
-      "source": "/CSS%20Files/:path*",
-      "destination": "/CSS Files/:path*"
+      "src": "/CSS%20Files/(.*)",
+      "dest": "/CSS Files/$1"
     },
     {
-      "source": "/JS%20Files/:path*",
-      "destination": "/JS Files/:path*"
+      "src": "/JS%20Files/(.*)",
+      "dest": "/JS Files/$1"
     },
     {
-      "source": "/Project%20Images/:path*",
-      "destination": "/Project Images/:path*"
+      "src": "/Project%20Images/(.*)",
+      "dest": "/Project Images/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
     }
   ]
 }
