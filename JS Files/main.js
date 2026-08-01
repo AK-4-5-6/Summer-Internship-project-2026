@@ -1,4 +1,5 @@
 console.log("main.js loaded sucessfully");
+
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Ensure body gets the class immediately if localStorage is already dark
   if (localStorage.getItem("theme") === "dark") {
@@ -65,4 +66,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+console.log("main.js loaded sucessfully");
 
