@@ -63,6 +63,6 @@ console.log("main.js loaded sucessfully");
         footer.classList.remove('footer-visible');
       }
     });
-  }
-);
+  };
+
 
