@@ -1,3 +1,4 @@
+console.log("main.js loaded sucessfully");
 (() => {
   const initDarkMode = () => {
     // Looks for id="dark-mode-toggle" OR class="dark-mode-toggle"
@@ -64,4 +65,4 @@
     });
   }
 });
-console.log("main.js loaded sucessfully");
+
