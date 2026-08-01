@@ -22,7 +22,7 @@ console.log("main.js loaded sucessfully");
       });
     });
   };
-
+  
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initDarkMode);
   } else {
